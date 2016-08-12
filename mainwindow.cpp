@@ -127,5 +127,19 @@ void MainWindow::slot_writeToExcel()
 
     xlsx.selectSheet("工作计划");                 //设为当前显示Sheet
 
+    //获取表格的行数、列数
+    QXlsx::CellRange range;
+    range = xlsx.dimension();
+    int rowCount = range.rowCount();
+    int colCount = range.columnCount();
+    qDebug() << "rowCount:" << rowCount << "rowCount:" << colCount << xlsx.currentSheet()->sheetName();
+
+    //输出表格内容
+    for (int i = 1; i <= rowCount; i++){
+        for (int j = 1; j <= colCount; j++){
+            qDebug() << i << j << xlsx.cellAt(i, j)->value().toString();
+        }
+    }
+
     xlsx.saveAs("Test.xlsx");                           //另存为
 }
