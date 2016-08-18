@@ -132,7 +132,7 @@ void MainWindow::slot_writeToExcel()
     range = xlsx.dimension();
     int rowCount = range.rowCount();
     int colCount = range.columnCount();
-    qDebug() << "rowCount:" << rowCount << "rowCount:" << colCount << xlsx.currentSheet()->sheetName();
+    qDebug() << "rowCount:" << rowCount << "colCount:" << colCount << xlsx.currentSheet()->sheetName();
 
     //输出表格内容
     for (int i = 1; i <= rowCount; i++){
